@@ -189,6 +189,7 @@ export class CatalogComponent {
     ];
   }
 
+  
   addToCart(product: IProduct) {
     this.cart.push(product);
     console.log(`product ${product.name} added to cart`);
