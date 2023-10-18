@@ -200,15 +200,10 @@ export class CatalogComponent {
     else return [];
   }
 
-  getImageUrl(product: IProduct) {
-    if (!product) return '';
-    return '/assets/images/robot-parts/' + product.imageName
-  }
 
   getFilteredProducts() {
-    return this.filter === '' 
-    ? this.products 
-    : this.products.filter((product: any) => product.category === this.filter);
+    return this.filter === '' ? this.products : 
+    this.products.filter((product: any) => product.category === this.filter);
   }
   
 }
