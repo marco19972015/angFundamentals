@@ -9,6 +9,7 @@
   
     <ul class="products">
       <li class="product-item">
+
         <div class="product" *ngFor="let product of getFilteredProducts()">
           <div class="product-details">
             <img [src]="getImageUrl(product)" [alt]="product?.name" />
@@ -28,12 +29,11 @@
                 {{ (product.price * (1 - product.discount)) | currency:'USD' }}
               </div>
             </div>
- 
 
-
-            <button class="cta">Buy</button>
+            <button class="cta" (click)="addToCart(product)">Buy</button>
           </div>
         </div>
+        
       </li>
     </ul>
   </div>
