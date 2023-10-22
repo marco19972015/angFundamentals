@@ -1,5 +1,7 @@
+// Component should have the logic about how to display the data 
 import { Component } from '@angular/core';
 import { IProduct } from './product.model';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'bot-catalog',
@@ -9,9 +11,10 @@ import { IProduct } from './product.model';
 export class CatalogComponent {
   products: any[];
   filter: string = '';
-  cart: IProduct[] = [];
+  
 
-  constructor(){
+  // We are using DP to inject an instance of our CartService logic into our catalog.component
+  constructor(private cartSvc: CartService){
     this.products = [
       {
         id: 1,
@@ -191,9 +194,7 @@ export class CatalogComponent {
 
   
   addToCart(product: IProduct) {
-    this.cart.push(product);
-    console.log(`product ${product.name} added to cart`);
-    
+    this.cartSvc.add(product)
   }
 
   getDiscountedClasses(product: IProduct) {
